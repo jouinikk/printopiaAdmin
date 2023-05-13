@@ -92,11 +92,14 @@
                                 @enderror
                             </div>
                         </div>
+
                         <div class="row mb-3">
                             <label for="role" class="col-md-4 col-form-label text-md-end">{{ __('Role') }}</label>
-
                             <div class="col-md-6">
-                                <input id="role" type="role" class="form-control @error('role') is-invalid @enderror" name="role" value="{{ old('role') }}" required autocomplete="role" autofocus>
+                                <select id="role" class="form-select  @error('role') is-invalid @enderror" aria-label="Default select example" name="role" value="{{ old('role') }}" required autocomplete="role" autofocus>
+                                    <option value="admin">Admin</option>
+                                    <option value="user">User</option>
+                                </select>
 
                                 @error('role')
                                     <span class="invalid-feedback" role="alert">

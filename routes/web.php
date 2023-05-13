@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +33,7 @@ Route::get('/produits', function () {
 
 Route::get('/clients', function () {
     return view('dash/clients');
-});
+})->middleware('role:super');
 
 Route::get('/reclammation', function () {
     return view('dash/reclammation');
@@ -59,6 +61,7 @@ Route::get('/master', function () {
 
 */
 
-Auth::routes();
+Auth::routes(['verify'=>true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
