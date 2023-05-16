@@ -1,7 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StockController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ReclamController;
+use App\Http\Controllers\ProduitsController;
 
 
 /*
@@ -27,25 +32,19 @@ Route::get('/dashboard', function () {
     return view('dash/dashboard');
 });
 
-Route::get('/produits', function () {
-    return view('dash/produit');
-});
+Route::get('/produits', [ProduitsController::class,'index']);
 
-Route::get('/clients', function () {
-    return view('dash/clients');
-})->middleware('role:super');
 
-Route::get('/reclammation', function () {
-    return view('dash/reclammation');
-});
+Route::get('/clients',[ClientController::class,'index']);
+
+
+Route::get('/reclammation', [ReclamController::class,'index']);
 
 Route::get('/webupdate', function () {
     return view('dash/webupdate');
 });
 
-Route::get('/stock', function () {
-    return view('dash/stock');
-});
+Route::get('/stock', [StockController::class,'index']);
 
 Route::get('/user', function () {
     return view('dash/user');
