@@ -1,4 +1,4 @@
-    <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
+    <nav class="navbar navbar-expand-sm navbar-transparent  bg-primary  navbar-absolute my-auto" style="height:10%">
         <div class="container-fluid">
           <div class="navbar-wrapper">
             <div class="navbar-toggle">
@@ -49,7 +49,7 @@
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/user">
+                <a class="nav-link" href="#">
                   <i class="now-ui-icons users_single-02"></i>
                   <p>
                     <span class="d-lg-none d-md-block">Account</span>

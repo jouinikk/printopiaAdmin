@@ -4,10 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
-
-
-class role
+class UserRoleMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,12 +14,12 @@ class role
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle(Request $request, Closure $next): Response
-    {
-        if(auth()->user()->role == 'admin'){
+    {   
+        if(Auth::check()){
             return $next($request);
+        }else{
+            return responce()->json(["You don't have permission to access this page!!"]);
         }
-        else{
-            return redirect('home')->with('error','you have not admin access.');
-        }
+
     }
 }

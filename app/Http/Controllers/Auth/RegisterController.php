@@ -49,25 +49,10 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-/*
-        $date = $request->input('date');
-        $date = date('Y-m-d', strtotime($request->input('date')));
-        // ou
-        $date = \Carbon\Carbon::createFromFormat('Y-m-d', $request->input('date'));
-
-        $request->validate(['date' => 'required|date_format:d-m-Y']);
-*/
         return Validator::make($data, [
-            'firstName' => ['required', 'string', 'max:255'],
-            'lastName' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'role' => ['required', 'string', 'max:255'],
-            'phone'=> ['required', 'string', 'max:11'],
-            'postalZip' => ['required', 'string', 'max:255'],
-            'adresse' => ['required', 'string', 'max:255'],
-            //'dateNais' => ['required|date_format:d-m-Y'],
-            'dateNais' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -79,18 +64,10 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        //dd($data);
         return User::create([
+            'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'firstName' => $data['firstName'],
-            'lastName' => $data['lastName'],
-            'email' => $data['email'],
-            'role' => $data['role'],
-            'phone'=> $data['phone'],
-            'postalZip' => $data['postalZip'],
-            'adresse' => $data['adresse'],
-            'dateNais' => $data['dateNais'],
         ]);
     }
 }

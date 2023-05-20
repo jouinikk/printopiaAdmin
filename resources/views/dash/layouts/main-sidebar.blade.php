@@ -3,10 +3,10 @@
       Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
      -->
     <div class="logo">
-      <a href="/dashboard" class="simple-text logo-mini">
+      <a href="/home" class="simple-text logo-mini">
         PA
       </a>
-      <a href="/dashboard" class="simple-text logo-normal">
+      <a href="/home" class="simple-text logo-normal">
         PRINTOPIA ADMIN
       </a>
     </div>

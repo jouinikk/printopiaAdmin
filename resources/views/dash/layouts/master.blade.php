@@ -8,21 +8,19 @@
   @include('dash.layouts.head')
 </head>
 
-<body class="">
-  <div class="wrapper ">
+<body>
+  <div class="wrapper">
     @include('dash.layouts.main-sidebar')
     <div class="main-panel" id="main-panel">
       <!-- Navbar -->
       @include('dash.layouts.main-navbar')
       <!-- End Navbar -->
 
-    @yield('content')
-        <!-- footer section -->
-  @include('dash.layouts.footer')
-  <!-- footer section -->
-
-  @include('dash.layouts.footer-scripts')
-
+      @yield('content') 
+      <!-- footer section -->
+      @include('dash.layouts.footer')
+      @include('dash.layouts.footer-scripts')
+      <!-- footer section -->
     </div>
   </div>
 
